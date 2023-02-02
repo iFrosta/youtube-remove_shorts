@@ -1,7 +1,7 @@
 let run = async () => {
     let timeout = (ms) => new Promise(resolve => setTimeout(resolve, ms)), lastScrollY = window.scrollY
 
-    window.onscroll = function () {
+    window.onscroll = () => {
         if (window.scrollY > lastScrollY) removeSHORTS(false)
     }
 
@@ -9,16 +9,15 @@ let run = async () => {
 
     async function removeSHORTS(wait = false) {
         lastScrollY = window.scrollY
+        let elements = document.querySelectorAll('[overlay-style="SHORTS"]')
 
-        if (document.querySelectorAll('[overlay-style="SHORTS"]').length > 0) {
-            let elements = document.querySelectorAll('[overlay-style="SHORTS"]')
-
+        if (elements.length >= 1) {
             for (let i = 0; i < elements.length; i++) {
                 elements[i].closest("ytd-grid-video-renderer").remove()
             }
 
         } else if (wait) {
-            await timeout(1000).then(() => removeSHORTS(true))
+            await timeout(500).then(() => removeSHORTS(true))
         }
     }
 }

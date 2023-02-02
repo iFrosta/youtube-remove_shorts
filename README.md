@@ -1,5 +1,5 @@
 # Youtube - Remove SHORTS
-Simple Chrome extension to remove SHORT from feed 😀
+Simple Chrome extension to remove SHORTS from feed 😀
 
 Made by [@ifrosta](https://github.com/iFrosta) with ❤️
 
